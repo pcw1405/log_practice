@@ -1,8 +1,14 @@
-/.bash_logout
-/.bashrc
-/.cache
-/.dotnet
-/.local
-/.motd_shown
-/.profile
-/.vscode-server
+# 모든 로그 제외
+*.log
+
+# reports의 txt 제외
+reports/*.txt
+
+# 로컬 개인 설정/기록(레포 안에 들어오면 제외)
+.bash_history
+.gitconfig
+
+# 샘플 폴더는 예외로 허용
+!samples/
+!samples/sample_syslog.log
+!samples/sample_report.txt
