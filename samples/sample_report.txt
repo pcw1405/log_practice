@@ -1,6 +1,6 @@
 ==== 로그 분석 리포트 ====
 대상 파일: dummy_syslog.log
-생성 시각: 2026-02-09 12:02:35
+생성 시각: 2026-02-09 13:47:51
 전체 로그 수: 200
 ERROR 수: 64
 WARN 수: 63
@@ -8,6 +8,9 @@ INFO 수: 73
 
 ERROR 메시지 TOP5:
      64 Failed login attempt
+
+로그인 실패 총합: 64
+[ALERT] 브루트포스 의심: 실패 로그인 5회 이상
 
 최근 10줄:
 Jan 05 12:44:00 server-app WARN: Disk usage above 70%

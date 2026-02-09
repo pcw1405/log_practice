@@ -3,15 +3,28 @@ set -euo pipefail
 
 LOG_FILE="${1:-dummy_syslog.log}"
 OUT_DIR="reports"
-mkdir -p "$OUT_DIR"
+SAMPLE_DIR="samples"
+mkdir -p "$OUT_DIR" "$SAMPLE_DIR"
+
+# 입력 파일 체크(없으면 친절하게 종료)
+if [ ! -f "$LOG_FILE" ]; then
+  echo "[ERROR] 로그 파일이 없습니다: $LOG_FILE"
+  echo "사용법: ./analyze_syslog.sh [logfile]"
+  exit 1
+fi
 
 TS="$(date +'%Y%m%d_%H%M%S')"
 OUT_FILE="${OUT_DIR}/report_${TS}.txt"
 
+# 기본 통계
 total=$(wc -l < "$LOG_FILE")
 error=$(grep -c " ERROR:" "$LOG_FILE" || true)
 warn=$(grep -c " WARN:" "$LOG_FILE" || true)
 info=$(grep -c " INFO:" "$LOG_FILE" || true)
+
+# 보안/운영 포인트(지금 더미로그에 맞춘 실패 로그인 경보)
+fail_cnt=$(grep -c "Failed login" "$LOG_FILE" || true)
+ALERT_THRESHOLD=5
 
 {
   echo "==== 로그 분석 리포트 ===="
@@ -30,14 +43,21 @@ info=$(grep -c " INFO:" "$LOG_FILE" || true)
     | sort | uniq -c | sort -nr | head -n 5 || true
 
   echo ""
+  echo "로그인 실패 총합: ${fail_cnt}"
+  if [ "$fail_cnt" -ge "$ALERT_THRESHOLD" ]; then
+    echo "[ALERT] 브루트포스 의심: 실패 로그인 ${ALERT_THRESHOLD}회 이상"
+  else
+    echo "[OK] 로그인 실패가 임계치(${ALERT_THRESHOLD}) 미만"
+  fi
+
+  echo ""
   echo "최근 10줄:"
   tail -n 10 "$LOG_FILE"
 } > "$OUT_FILE"
 
 # 샘플 파일 갱신(학습/깃허브 업로드용)
-mkdir -p samples
-head -n 20 "$LOG_FILE" > samples/sample_syslog.log
-head -n 30 "$OUT_FILE" > samples/sample_report.txt
-echo "샘플 갱신: samples/sample_syslog.log, samples/sample_report.txt"
+head -n 20 "$LOG_FILE" > "${SAMPLE_DIR}/sample_syslog.log"
+head -n 40 "$OUT_FILE" > "${SAMPLE_DIR}/sample_report.txt"
+echo "샘플 갱신: ${SAMPLE_DIR}/sample_syslog.log, ${SAMPLE_DIR}/sample_report.txt"
 
 echo "완료: $OUT_FILE"
