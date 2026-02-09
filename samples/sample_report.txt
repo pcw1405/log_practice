@@ -1,15 +1,22 @@
 ==== 로그 분석 리포트 ====
 대상 파일: dummy_syslog.log
-생성 시각: 2026-01-30 06:32:50
+생성 시각: 2026-02-09 12:02:35
 전체 로그 수: 200
 ERROR 수: 64
 WARN 수: 63
 INFO 수: 73
+
+ERROR 메시지 TOP5:
+     64 Failed login attempt
 
 최근 10줄:
 Jan 05 12:44:00 server-app WARN: Disk usage above 70%
 Jan 05 12:44:00 server-app ERROR: Failed login attempt
 Jan 05 12:44:00 server-app WARN: Disk usage above 70%
 Jan 05 12:44:00 server-app INFO: System check passed
+Jan 05 12:44:00 server-app ERROR: Failed login attempt
+Jan 05 12:44:00 server-app ERROR: Failed login attempt
+Jan 05 12:44:00 server-app ERROR: Failed login attempt
+Jan 05 12:44:00 server-app ERROR: Failed login attempt
 Jan 05 12:44:00 server-app ERROR: Failed login attempt
 Jan 05 12:44:00 server-app ERROR: Failed login attempt
