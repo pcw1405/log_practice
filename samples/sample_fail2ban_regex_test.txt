@@ -1,0 +1,28 @@
+
+Running tests
+=============
+
+Use   failregex filter file : server-app-login, basedir: /etc/fail2ban
+Use         log file : ./dummy_syslog2.log
+Use         encoding : UTF-8
+
+
+Results
+=======
+
+Failregex: 118 total
+|-  #) [# of hits] regular expression
+|   1) [118] ^.*server-app\s+ERROR:\s+Failed login for user=\S+\s+from ip=<HOST>\s+uri=\S+.*$
+`-
+
+Ignoreregex: 0 total
+
+Date template hits:
+|- [# of hits] date format
+|  [318] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\.Microseconds)?(?: ExYear)?
+`-
+
+Lines: 318 lines, 0 ignored, 118 matched, 200 missed
+[processed in 0.02 sec]
+
+Missed line(s): too many to print.  Use --print-all-missed to print all 200 lines

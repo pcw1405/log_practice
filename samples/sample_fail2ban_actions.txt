@@ -1,0 +1,44 @@
+2026-02-18 20:14:31,214 fail2ban.jail           [59157]: INFO    Creating new jail 'server-app-login'
+2026-02-18 20:14:31,214 fail2ban.jail           [59157]: INFO    Jail 'server-app-login' uses systemd {}
+2026-02-18 20:14:31,219 fail2ban.filtersystemd  [59157]: NOTICE  [server-app-login] Jail started without 'journalmatch' set. Jail regexs will be checked against all journal entries, which is not advised for performance reasons.
+2026-02-18 20:14:31,220 fail2ban.jail           [59157]: INFO    Jail 'server-app-login' started
+2026-02-18 20:14:31,356 fail2ban.filtersystemd  [59157]: INFO    [server-app-login] Jail is in operation now (process new journal entries)
+2026-02-18 21:55:53,436 fail2ban.filter         [59157]: WARNING [server-app-login] Detected a log entry 37m 34s before the current time in operation mode. This looks like a latency problem. Treating such entries as if they just happened.
+2026-02-18 21:55:53,443 fail2ban.filter         [59157]: WARNING [server-app-login] Please check a jail for a timing issue. Line with odd timestamp: 2026-02-18T21:18:18.610521+09:00 LAPTOP-EM0PA707 kernel: [17356.322391] hv_utils: TimeSync IC version 4.0
+2026-02-18 22:44:00,741 fail2ban.actions        [59157]: NOTICE  [server-app-login] Flush ticket(s) with nftables
+2026-02-18 22:44:00,741 fail2ban.jail           [59157]: INFO    Jail 'server-app-login' stopped
+2026-02-18 22:44:01,023 fail2ban.jail           [64091]: INFO    Creating new jail 'server-app-login'
+2026-02-18 22:44:01,023 fail2ban.jail           [64091]: INFO    Jail 'server-app-login' uses systemd {}
+2026-02-18 22:44:01,029 fail2ban.filtersystemd  [64091]: NOTICE  [server-app-login] Jail started without 'journalmatch' set. Jail regexs will be checked against all journal entries, which is not advised for performance reasons.
+2026-02-18 22:44:01,030 fail2ban.jail           [64091]: INFO    Jail 'server-app-login' started
+2026-02-18 22:44:01,041 fail2ban.filtersystemd  [64091]: INFO    [server-app-login] Jail is in operation now (process new journal entries)
+2026-02-19 00:01:56,887 fail2ban.actions        [64091]: NOTICE  [server-app-login] Flush ticket(s) with nftables
+2026-02-19 00:01:56,887 fail2ban.jail           [64091]: INFO    Jail 'server-app-login' stopped
+2026-02-19 00:01:57,137 fail2ban.jail           [70068]: INFO    Creating new jail 'server-app-login'
+2026-02-19 00:01:57,138 fail2ban.jail           [70068]: INFO    Jail 'server-app-login' uses poller {}
+2026-02-19 00:01:57,145 fail2ban.jail           [70068]: INFO    Jail 'server-app-login' started
+2026-02-19 00:02:02,446 fail2ban.transmitter    [70068]: ERROR   Command ['get', 'server-app-login', 'backend'] has failed. Received Exception('Invalid command (no get action or not yet implemented)')
+2026-02-19 04:37:06,996 fail2ban.actions        [70068]: NOTICE  [server-app-login] Flush ticket(s) with nftables
+2026-02-19 04:37:07,002 fail2ban.jail           [70068]: INFO    Jail 'server-app-login' stopped
+2026-02-19 12:50:08,095 fail2ban.jail           [167]: INFO    Creating new jail 'server-app-login'
+2026-02-19 12:50:08,096 fail2ban.jail           [167]: INFO    Jail 'server-app-login' uses poller {}
+2026-02-19 12:50:08,105 fail2ban.jail           [167]: INFO    Jail 'server-app-login' started
+2026-02-19 16:42:47,870 fail2ban.filter         [167]: WARNING [server-app-login] Ignoring all log entries older than 600s; these are probably messages generated while fail2ban was not running.
+2026-02-19 16:42:47,873 fail2ban.filter         [167]: WARNING [server-app-login] Please check a jail for a timing issue. Line with odd timestamp: Feb 19 00:10:01 server-app ERROR: Failed login for user=admin from ip=203.0.113.10 uri=/login
+2026-02-19 16:47:35,532 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 16:47:34
+2026-02-19 16:47:35,532 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 16:47:34
+2026-02-19 16:47:35,533 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 16:47:35
+2026-02-19 16:47:35,533 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 16:47:35
+2026-02-19 16:47:35,534 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 16:47:35
+2026-02-19 16:47:35,546 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 16:47:35
+2026-02-19 16:47:35,700 fail2ban.actions        [167]: NOTICE  [server-app-login] Ban 203.0.113.10
+2026-02-19 16:57:35,384 fail2ban.actions        [167]: NOTICE  [server-app-login] Unban 203.0.113.10
+2026-02-19 19:13:59,091 fail2ban.filter         [167]: WARNING [server-app-login] Detected a log entry 19h 4m before the current time in operation mode. This looks like a timezone problem. Treating such entries as if they just happened.
+2026-02-19 19:13:59,101 fail2ban.filter         [167]: WARNING [server-app-login] Please check a jail for a timing issue. Line with odd timestamp: Feb 19 00:10:01 server-app ERROR: Failed login for user=admin from ip=203.0.113.10 uri=/login
+2026-02-19 19:13:59,202 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 19:13:59
+2026-02-19 19:13:59,202 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 19:13:59
+2026-02-19 19:13:59,202 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 19:13:59
+2026-02-19 19:13:59,203 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 19:13:59
+2026-02-19 19:13:59,203 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 19:13:59
+2026-02-19 19:13:59,204 fail2ban.filter         [167]: INFO    [server-app-login] Found 203.0.113.10 - 2026-02-19 19:13:59
+2026-02-19 19:13:59,230 fail2ban.actions        [167]: NOTICE  [server-app-login] Ban 203.0.113.10
